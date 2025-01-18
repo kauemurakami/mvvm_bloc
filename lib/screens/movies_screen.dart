@@ -32,6 +32,7 @@ class MoviesScreen extends StatelessWidget {
           IconButton(
             onPressed: () async {
               context.read<ThemeBloc>().add(ThemeToggleEvent());
+              // getIt<ThemeBloc>().add(ThemeToggleEvent());
             },
             icon: BlocSelector<ThemeBloc, ThemeState, bool>(
               selector: (state) {

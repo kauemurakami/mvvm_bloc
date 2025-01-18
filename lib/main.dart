@@ -33,6 +33,10 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<ThemeBloc>(
           create: (_) => ThemeBloc()..add(ThemeLoadEvent()),
+          // create: (_) => getIt<ThemeBloc>()
+          //   ..add(
+          //     ThemeLoadEvent(),
+          //   ),
         ),
       ],
       child: BlocSelector<ThemeBloc, ThemeState, bool>(
