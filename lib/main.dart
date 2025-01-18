@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<ThemeBloc>(
           create: (_) => ThemeBloc()..add(ThemeLoadEvent()),
+          //or
           // create: (_) => getIt<ThemeBloc>()
           //   ..add(
           //     ThemeLoadEvent(),
