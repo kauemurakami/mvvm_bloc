@@ -83,7 +83,9 @@ class MoviesScreen extends StatelessWidget {
                       ),
                     );
                   }
-                  return MoviesWidget();
+                  return MoviesWidget(
+                    movieModel: movies[index],
+                  );
                 },
               ),
             );
