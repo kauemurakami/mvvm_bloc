@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:mvvm_statemanagements/view_models/movies/movies_bloc.dart';
 import 'package:mvvm_statemanagements/view_models/theme/theme_bloc.dart';
 
 import 'constants/my_theme_data.dart';
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
           //     ThemeLoadEvent(),
           //   ),
         ),
+        BlocProvider<MoviesBloc>(
+          create: (_) => MoviesBloc(),
+        ),
       ],
       child: BlocSelector<ThemeBloc, ThemeState, bool>(
         selector: (state) => state is ThemeDarkState,
@@ -47,8 +51,9 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Movies App',
             theme: isDarkMode ? MyThemeData.darkTheme : MyThemeData.lightTheme,
-            home: const MoviesScreen(),
-            // const SplashScreen(), //const MovieDetailsScreen(), //const FavoritesScreen(), //const MoviesScreen(),
+            home:
+                // const MoviesScreen(),
+                const SplashScreen(),
           );
         },
       ),
