@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../constants/my_app_icons.dart';
-import '../widgets/movies/movies_widget.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});

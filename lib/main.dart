@@ -4,9 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mvvm_statemanagements/view_models/movies/movies_bloc.dart';
 import 'package:mvvm_statemanagements/view_models/theme/theme_bloc.dart';
-
 import 'constants/my_theme_data.dart';
-import 'screens/movies_screen.dart';
 import 'screens/splash_screen.dart';
 import 'service/init_getit.dart';
 import 'service/navigation_service.dart';

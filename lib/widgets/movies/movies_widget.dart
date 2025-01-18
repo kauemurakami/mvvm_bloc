@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_statemanagements/constants/api_constants.dart';
-import 'package:mvvm_statemanagements/constants/my_app_constants.dart';
 import 'package:mvvm_statemanagements/constants/my_app_icons.dart';
 import 'package:mvvm_statemanagements/screens/movie_details.dart';
 import '../../models/movies_model.dart';
