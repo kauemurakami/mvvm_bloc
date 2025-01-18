@@ -18,17 +18,11 @@ class SplashScreen extends StatelessWidget {
         listeners: [
           BlocListener<MoviesBloc, MoviesState>(
             listener: (context, state) {
-              print('aqui');
-              print(context.read<MoviesBloc>().state);
-              print(context.read<FavoritesBloc>().state);
               if (state is MoviesLoadedState && context.read<FavoritesBloc>().state is FavoritesLoadedState) {
-                print('passou');
                 getIt<NavigationService>().navigateReplace(
                   const MoviesScreen(),
                 );
               } else if (state is MoviesErroState) {
-                print('aqui error');
-
                 getIt<NavigationService>().showSnackbar(state.message);
               }
             },

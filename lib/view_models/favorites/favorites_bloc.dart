@@ -16,7 +16,6 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
     on<FavoritesAddEvent>(_addFavorite);
     on<FavoritesRemoveEvent>(_removeFavorite);
     on<FavoritesRemoveAllEvent>(_clearFavorites);
-    // _loadFavorites;
   }
 
   Future<void> _saveFavorites(List<MovieModel> favoritesList) async {
@@ -31,15 +30,6 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
     await prefs.setStringList(MyAppConstants.favoritesKey, stringList);
   }
 
-  // bool _isFavorite(MovieModel movieModel) {
-  //   if (state is FavoritesLoadedState) {
-  //     return (state as FavoritesLoadedState).favorites.any(
-  //           (movie) => movie.id == movieModel.id,
-  //         );
-  //   }
-  //   return false;
-  // }
-
   Future<void> _addFavorite(FavoritesAddEvent event, emit) async {
     if (state is FavoritesInitial) {}
     if (state is FavoritesLoadedState) {
@@ -50,9 +40,9 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   }
 
   Future<void> _removeFavorite(FavoritesRemoveEvent event, emit) async {
+    print('aqui');
     if (state is FavoritesLoadedState) {
       List<MovieModel> updatedFavorites = (state as FavoritesLoadedState).favorites.where((movie) {
-        print('${movie.id} ${event.movieModel.id}');
         return movie.id != event.movieModel.id;
       }).toList();
       emit(FavoritesLoadedState(favorites: updatedFavorites));
@@ -68,7 +58,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   }
 
   void _clearFavorites(event, emit) async {
-    emit(FavoritesLoadedState(favorites: const []));
+    emit(const FavoritesLoadedState(favorites: const []));
     await _saveFavorites([]);
   }
 }
