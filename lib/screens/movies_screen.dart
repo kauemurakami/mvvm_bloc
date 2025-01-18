@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mvvm_statemanagements/main.dart';
 import 'package:mvvm_statemanagements/view_models/movies/movies_bloc.dart';
 import 'package:mvvm_statemanagements/view_models/theme/theme_bloc.dart';
 

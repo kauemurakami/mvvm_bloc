@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:mvvm_statemanagements/view_models/favorites/favorites_bloc.dart';
 import 'package:mvvm_statemanagements/view_models/movies/movies_bloc.dart';
 import 'package:mvvm_statemanagements/view_models/theme/theme_bloc.dart';
 import 'constants/my_theme_data.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<MoviesBloc>(
           create: (_) => MoviesBloc(),
+        ),
+        BlocProvider<FavoritesBloc>(
+          create: (_) => FavoritesBloc(),
         ),
       ],
       child: BlocSelector<ThemeBloc, ThemeState, bool>(

@@ -1,7 +1,11 @@
 part of 'movies_bloc.dart';
 
 @immutable
-sealed class MoviesState {}
+sealed class MoviesState extends Equatable {
+  const MoviesState();
+  @override
+  List<Object> get props => [];
+}
 
 final class MoviesInitial extends MoviesState {}
 
@@ -9,6 +13,8 @@ final class MoviesErroState extends MoviesState {
   final String message;
 
   MoviesErroState({required this.message});
+  @override
+  List<Object> get props => [message];
 }
 
 final class MoviesLoadingState extends MoviesState {}
@@ -23,6 +29,8 @@ final class MoviesLoadedState extends MoviesState {
     this.genres = const [],
     this.currentPage = 1,
   });
+  @override
+  List<Object> get props => [movies, genres, currentPage];
 }
 
 final class MoviesLoadingMoreState extends MoviesState {
@@ -30,9 +38,11 @@ final class MoviesLoadingMoreState extends MoviesState {
   final List<MoviesGenre> genres;
   final int currentPage;
 
-  MoviesLoadingMoreState({
+  const MoviesLoadingMoreState({
     this.movies = const [],
     this.genres = const [],
     this.currentPage = 0,
   });
+  @override
+  List<Object> get props => [movies, genres, currentPage];
 }
